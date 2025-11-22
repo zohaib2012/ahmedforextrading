@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import umairImage from "@assets/Screenshot 2025-11-23 032123_1763850185152.png";
 import ahmadImage from "@assets/pic (14)_1763850305118.webp";
+import hassnainImage from "@assets/image_1763850521972.png";
 import stock1 from "@assets/stock_images/professional_portrai_79e85ef9.jpg";
 import stock2 from "@assets/stock_images/professional_portrai_598da2a9.jpg";
 import stock3 from "@assets/stock_images/professional_portrai_f1469072.jpg";
@@ -72,7 +73,7 @@ export default function Home() {
                 <img src={umairImage} alt="Success Story 1" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
                 <img src={ahmadImage} alt="Success Story 2" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
                 <img src={stock3} alt="Success Story 3" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
-                <img src={stock4} alt="Success Story 4" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
+                <img src={hassnainImage} alt="Success Story 4" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
               </div>
             </div>
 
@@ -101,7 +102,7 @@ export default function Home() {
                 <TestimonialCard 
                   name="Hassnain" 
                   role="Forex Trader" 
-                  image={stock4}
+                  image={hassnainImage}
                   quote="Professional environment and great support team. The community is very helpful."
                 />
               </div>
