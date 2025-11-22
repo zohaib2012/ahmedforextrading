@@ -49,7 +49,7 @@ export function Stats() {
     <section className="py-12 border-y border-white/5 bg-black/50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/5">
-          <Counter end={2500} label="Students" suffix="+" />
+          <Counter end={100} label="Students" suffix="+" />
           <Counter end={95} label="Success Rate" suffix="%" />
           <Counter end={150} label="Active Clients" suffix="+" />
           <Counter end={4.9} label="Rating" suffix="/5" decimals={1} />
