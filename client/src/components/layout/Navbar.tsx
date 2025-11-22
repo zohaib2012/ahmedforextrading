@@ -55,7 +55,7 @@ export function Navbar() {
             </Link>
           ))}
           <Link href="/register">
-            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg px-4 py-2 h-auto text-sm">
+            <Button className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg px-4 py-2 h-auto text-sm cursor-pointer">
               Get Started
             </Button>
           </Link>
