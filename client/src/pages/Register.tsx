@@ -182,7 +182,7 @@ export default function Register() {
 
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-6"
+                className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 text-base cursor-pointer"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Submitting..." : "Register Now"}

@@ -53,7 +53,7 @@ export default function Home() {
               Join a community of successful traders and entrepreneurs today.
             </p>
             <Link href="/register">
-              <Button className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-8 py-6 rounded-lg shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300">
+              <Button className="bg-primary hover:bg-primary/90 text-white font-bold text-base px-6 py-3 rounded-lg shadow-lg shadow-primary/20 hover:scale-105 transition-all duration-300 cursor-pointer">
                 Join HR Growth
               </Button>
             </Link>
