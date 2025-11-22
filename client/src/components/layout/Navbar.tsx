@@ -23,7 +23,6 @@ export function Navbar() {
     { href: "/services", label: "Services" },
     { href: "/courses", label: "Courses" },
     { href: "/register", label: "Register" },
-    { href: "/admin", label: "Admin" },
   ];
 
   return (
