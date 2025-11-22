@@ -29,7 +29,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
           <Link href="/register">
             <Button className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg px-6 py-3 text-base w-full sm:w-auto min-w-[200px] cursor-pointer hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,200,83,0.3)]">
-              Get Started
+              Register
             </Button>
           </Link>
           <Link href="/services">

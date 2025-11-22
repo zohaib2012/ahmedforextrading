@@ -22,7 +22,6 @@ export function Navbar() {
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/courses", label: "Courses" },
-    { href: "/register", label: "Register" },
   ];
 
   return (
@@ -56,7 +55,7 @@ export function Navbar() {
           ))}
           <Link href="/register">
             <Button className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg px-4 py-2 h-auto text-sm cursor-pointer">
-              Get Started
+              Register
             </Button>
           </Link>
         </nav>
