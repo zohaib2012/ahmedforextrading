@@ -6,6 +6,7 @@ import { CourseCard } from "@/components/ui/CourseCard";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import umairImage from "@assets/Screenshot 2025-11-23 032123_1763850185152.png";
 import stock1 from "@assets/stock_images/professional_portrai_79e85ef9.jpg";
 import stock2 from "@assets/stock_images/professional_portrai_598da2a9.jpg";
 import stock3 from "@assets/stock_images/professional_portrai_f1469072.jpg";
@@ -67,7 +68,7 @@ export default function Home() {
             <div>
               <h3 className="text-2xl font-bold mb-8 text-white">Success Stories</h3>
               <div className="grid grid-cols-2 gap-4">
-                <img src={stock1} alt="Success Story 1" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
+                <img src={umairImage} alt="Success Story 1" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
                 <img src={stock2} alt="Success Story 2" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
                 <img src={stock3} alt="Success Story 3" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
                 <img src={stock4} alt="Success Story 4" className="w-full aspect-square object-cover rounded-lg opacity-80 hover:opacity-100 transition-opacity" />
@@ -81,7 +82,7 @@ export default function Home() {
                 <TestimonialCard 
                   name="Umair" 
                   role="Forex Trader" 
-                  image={stock1}
+                  image={umairImage}
                   quote="The mentorship at HR Growth changed my life. I went from losing money to consistent profits in 3 months."
                 />
                 <TestimonialCard 
