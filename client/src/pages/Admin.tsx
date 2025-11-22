@@ -39,12 +39,22 @@ export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { toast } = useToast();
   const [visitorCount, setVisitorCount] = useState(1254);
+  const [registrations, setRegistrations] = useState(MOCK_REGISTRATIONS);
 
   useEffect(() => {
     // Get visitor count from localStorage or initialize
     const storedVisits = localStorage.getItem("hr_visitor_count");
     if (storedVisits) {
       setVisitorCount(parseInt(storedVisits));
+    }
+
+    // Get registrations from localStorage
+    const storedRegs = localStorage.getItem("hr_registrations");
+    if (storedRegs) {
+      const parsedRegs = JSON.parse(storedRegs);
+      // Merge local storage regs with mock regs, avoiding duplicates if needed, 
+      // but for simplicity we just prepend local ones to mock ones.
+      setRegistrations([...parsedRegs, ...MOCK_REGISTRATIONS]);
     }
   }, []);
 
@@ -81,7 +91,7 @@ export default function Admin() {
   function handleExport() {
     const csvContent = "data:text/csv;charset=utf-8," 
       + "Name,Email,Phone,Course,Date\n"
-      + MOCK_REGISTRATIONS.map(e => `${e.name},${e.email},${e.phone},${e.course},${e.date}`).join("\n");
+      + registrations.map(e => `${e.name},${e.email},${e.phone},${e.course},${e.date}`).join("\n");
     
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
@@ -166,7 +176,7 @@ export default function Admin() {
               <Users className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">{MOCK_REGISTRATIONS.length}</div>
+              <div className="text-2xl font-bold text-white">{registrations.length}</div>
               <p className="text-xs text-muted-foreground">All time</p>
             </CardContent>
           </Card>
@@ -213,7 +223,7 @@ export default function Admin() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {MOCK_REGISTRATIONS.map((reg) => (
+                {registrations.map((reg) => (
                   <TableRow key={reg.id} className="border-white/10 hover:bg-white/5">
                     <TableCell className="font-medium text-white">{reg.name}</TableCell>
                     <TableCell className="text-gray-300">{reg.email}</TableCell>

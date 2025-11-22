@@ -59,6 +59,19 @@ export default function Register() {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
       
+      // Save to localStorage for demo purposes
+      const newRegistration = {
+        id: Date.now(),
+        name: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        course: values.course,
+        date: new Date().toISOString().split('T')[0]
+      };
+
+      const existingRegs = JSON.parse(localStorage.getItem("hr_registrations") || "[]");
+      localStorage.setItem("hr_registrations", JSON.stringify([newRegistration, ...existingRegs]));
+      
       console.log("Registration submitted:", values);
       
       toast({
