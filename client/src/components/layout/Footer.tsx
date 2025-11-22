@@ -45,10 +45,10 @@ export function Footer() {
           <div className="col-span-1">
             <h4 className="text-white font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={20} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Youtube size={20} /></a>
+              <a href="https://www.facebook.com/p/Hr-Growth-61576898318596/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"><Facebook size={20} /></a>
+              <a href="https://www.instagram.com/hr._tradingdesk" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"><Instagram size={20} /></a>
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"><Linkedin size={20} /></a>
+              <a href="https://www.youtube.com/@HR_TradingDesk" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"><Youtube size={20} /></a>
             </div>
           </div>
         </div>

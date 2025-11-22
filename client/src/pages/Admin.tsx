@@ -38,6 +38,15 @@ const loginSchema = z.object({
 export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { toast } = useToast();
+  const [visitorCount, setVisitorCount] = useState(1254);
+
+  useEffect(() => {
+    // Get visitor count from localStorage or initialize
+    const storedVisits = localStorage.getItem("hr_visitor_count");
+    if (storedVisits) {
+      setVisitorCount(parseInt(storedVisits));
+    }
+  }, []);
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -147,8 +156,8 @@ export default function Admin() {
               <Eye className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-white">1,254</div>
-              <p className="text-xs text-muted-foreground">+12% from yesterday</p>
+              <div className="text-2xl font-bold text-white">{visitorCount.toLocaleString()}</div>
+              <p className="text-xs text-muted-foreground">Live tracking</p>
             </CardContent>
           </Card>
           <Card className="bg-card border-white/10">
