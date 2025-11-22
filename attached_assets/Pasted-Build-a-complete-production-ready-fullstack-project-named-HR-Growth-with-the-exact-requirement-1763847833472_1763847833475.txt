@@ -1,0 +1,225 @@
+Build a complete, production-ready, fullstack project named **HR Growth** with the exact requirements below.
+
+GENERAL THEME & ASSETS
+- Theme: **Black background** (#000000). Primary accent: **Green** (#00C853 or similar vivid green). Text: **White** for main text, Green for accents/buttons/links. Keep contrast and accessibility (WCAG AA).
+- Use only the uploaded logo image at top-left (NO text logo anywhere).
+- Typography: modern sans-serif (e.g., Inter or Poppins). Provide fallback stack. Use font sizes that scale responsively.
+- Color tokens:
+  - --bg: #000000
+  - --text: #FFFFFF
+  - --accent: #00C853
+  - --muted: #AFAFAF
+- Use TailwindCSS for styling and utility-first classes. Avoid inline styles except for dynamic values.
+
+PROJECT STRUCTURE
+- Frontend: React (latest), React Router v6, TailwindCSS, Axios or Fetch, Hero icons (optional).
+- Backend: Node.js + Express.
+- Auth: JWT for admin APIs.
+- DB: MongoDB (collections: students, visitors).
+- Dev tooling: ESLint, Prettier, Husky (optional).
+- README: setup, env vars, run scripts, build steps.
+
+FRONTEND — GLOBAL RULES
+- Black theme + white/green text strictly.
+- No console errors/warnings.
+- Fully responsive (desktop, tablet, mobile).
+- Smooth fade-in animations (use CSS transitions / Tailwind @keyframes).
+- Accessibility: proper semantic elements, alt text for images, form labels, focus states.
+- No visible logo text — only the uploaded logo image used.
+
+HEADER (desktop & mobile)
+- Height: desktop 72px, mobile 56px (not oversized).
+- Left: uploaded logo image (height 44px desktop, 36px mobile).
+- Right: nav links (Home, Services, Courses, Register, Admin).
+- CTA button on right: "Get Started" (accent green, rounded-lg, padding px-4 py-2).
+- Hamburger (mobile): functional — opens full-screen drawer from right with smooth slide animation.
+  - Hamburger icon must be accessible (button with aria-label).
+  - Drawer shows nav links, CTA, and small contact area.
+- Sticky header with subtle backdrop blur when scrolled.
+
+HERO SECTION (Full-width)
+- Background: candlestick trading chart image/video (subtle, overlay gradient black 60%).
+- Height: Desktop: min-height 78vh; Tablet: 60vh; Mobile: 52vh.
+- Layout: center-aligned content vertically & horizontally.
+- Title (centered, slightly above middle):
+  - **Master Trading & Accelerate Your Growth**
+  - Font-size: Desktop 48–56px, Tablet 36–40px, Mobile 22–28px.
+  - Weight: 700.
+- Paragraph: smaller text under title (max-width 760px).
+- Buttons centered under paragraph: two side-by-side:
+  - Primary: **Get Started** (green, slightly larger).
+  - Secondary: **Our Services** (outline or muted white).
+- Do NOT make banner text huge — follow above font sizes so it's professional & balanced.
+
+STATS SECTION (NO BOXES)
+- Four counters horizontally on desktop, grid on mobile (2x2).
+- Counters animate 0 → target on page load.
+- Values and labels (exact):
+  - 2500+ Students
+  - 95% Success Rate
+  - 150+ Active Clients
+  - 4.9/5 Rating
+- Spacing/padding balanced; no bordered boxes; use subtle separators (thin lines or spacing).
+
+COURSES PREVIEW (Two equal cards)
+- Two equal-width cards side-by-side on desktop, stacked on mobile.
+- Card titles:
+  1. AI Automation (YouTube Automation)
+  2. Forex Trading
+- Each card: short summary, duration badge, price placeholder, CTA "View Course".
+- Clean, modern, same height.
+
+MID CTA
+- Centered large text: "Ready to Start Profiting?"
+- Smaller paragraph and single CTA button "Join HR Growth".
+- Use accent green, drop shadow, subtle animation on hover.
+
+SUCCESS STORIES + TESTIMONIALS
+- Success Stories: 2x2 grid with 4 placeholder images (use consistent aspect ratio).
+- Testimonials: 4 cards named Umair, Ahmad Ali, Mohsin, Hassnain — include role "Forex Trader".
+- Cards: user photo, short quote, rating (stars), subtle border radius and shadow.
+
+FOOTER
+- Compact and attractive, not oversized.
+- Sections:
+  - Contact: 0370-5102268 | HRgrowths@gmail.com
+  - Address: Commercial Area, Bahawalpur
+  - Quick Links: Home, Services, Courses, Register, Admin Panel
+  - Social icons (optional)
+- Copyright & small text.
+
+SERVICES PAGE
+- Grid of 4 service cards with icons + short descriptions:
+  - Graphic Designing
+  - Social Media Marketing
+  - Brand Startups
+  - Website Development
+- Clean grid, equal card sizes, hover lift animation.
+
+COURSES PAGE (Detailed)
+- Two full course sections (AI Automation, Forex Trading).
+- Each section includes:
+  - Summary paragraph
+  - Bullet points/features
+  - Duration (e.g., 8 weeks)
+  - Price placeholder (e.g., PKR — )
+  - Enroll button (opens Registration page preselected course)
+
+REGISTRATION PAGE (Form)
+- Fields:
+  - Full Name (required)
+  - Email (required, validated)
+  - Phone (required, validated)
+  - Country (default+only option: Pakistan)
+  - Course select (Forex / AI Automation)
+- On submit:
+  - Frontend validate (client-side) then POST to `/api/register`.
+  - Show toast popup success message on success.
+  - Form clears on success.
+- Also handle server-side validation errors gracefully.
+
+FRONTEND ROUTES
+- / (Home)
+- /services
+- /courses
+- /register
+- /admin (Admin panel — protected route)
+
+BACKEND — EXPRESS API (exact endpoints)
+- Env vars:
+  - MONGODB_URI
+  - JWT_SECRET
+  - PORT
+
+APIs
+1) POST /api/register
+   - Body: { name, email, phone, country, course }
+   - Validate input; save to MongoDB collection `students`:
+     { name, email, phone, country, course, createdAt: ISOString }
+   - Return 201 + registration object (omit internal fields).
+
+2) POST /api/admin/login
+   - Credentials EXACT:
+     - Username: TRADINGDESK
+     - Password: TRADINGDESK0099
+   - On success return JWT (expires e.g., 8h). Use same JWT_SECRET.
+   - Rate-limit this endpoint (e.g., 5 attempts / 15min).
+
+3) GET /api/admin/registrations
+   - JWT protected. Returns list of student registrations sorted by createdAt desc.
+   - Support query params: search (name/email), page, limit.
+   - Field selection: name, email, phone, course, createdAt.
+
+4) POST /api/track-visit
+   - Use session or cookie to ensure increment only once per user session (set cookie `hrg_visited_today` with expiry at midnight server time).
+   - Increment today's count in `visitors` collection or a suitable document.
+
+5) GET /api/stats/visitors
+   - Return { today: number, total: number }.
+
+DATABASE SCHEMA (MongoDB)
+- students:
+  - _id, name, email, phone, country, course, createdAt
+  - Index on email for uniqueness optional.
+- visitors:
+  - { date: "YYYY-MM-DD", count: Number } or a single doc for totals with daily subdocs.
+
+ADMIN PANEL (React)
+- Login screen (username + password). Use provided credentials.
+- After login:
+  - Table of registrations (columns: name, email, phone, course, createdAt)
+    - Pagination, server-side search by name/email.
+    - Export CSV button (exports visible rows).
+  - Visitor stats:
+    - Today count + total visits display cards.
+    - 7-day visitor chart (line chart) — use charting library (Recharts) or simple SVG.
+  - Protect routes: store token in memory/localStorage and attach Authorization header `Bearer <token>`.
+  - Logout button clears token.
+- Admin table must be crisp & readable: compact rows, responsive.
+
+VISITOR TRACKING & COOKIE RULES
+- When frontend loads it should call POST /api/track-visit once per session.
+- Use cookie name `hrg_visit` with value and expiry at server midnight; backend should check cookie to avoid double-count.
+- Backend should increment `visitors` collection by date.
+
+UX / SIZING RULES (fixes you asked for)
+- Banner texts must follow the specified font sizes — NOT oversized.
+- Header/footer must be normal heights (header 72px desktop, footer ~120px) — not huge blocks.
+- Buttons and CTAs sized using Tailwind padding classes (px-4 py-2 for primary, px-3 py-1.5 for secondary).
+- Spacing: use Tailwind spacing scale (p-4, p-6, gap-6 etc.). Avoid huge paddings that look like empty blocks.
+- On mobile reduce hero title size and stack CTAs vertically with spacing.
+- Hamburger must be a functioning `<button>` controlling a drawer with proper aria attributes and focus trap.
+
+PERFORMANCE & OTHER REQUIREMENTS
+- Lazy-load images, compress assets, minify production build.
+- Use server-side pagination for admin registrations.
+- Add basic unit tests for critical backend routes (optional but preferred).
+- Add E2E/Integration tests for register flow (optional).
+
+SECURITY
+- Validate and sanitize all inputs on server.
+- Hash admin password? (We have fixed creds; still compare securely).
+- Use HTTPS in production.
+- Use CORS restrict to allowed origins.
+
+DELIVERABLES (exact)
+- Complete React frontend source.
+- Complete Node/Express backend source.
+- MongoDB schema and seed script (seed sample students + visitor data).
+- README:
+  - Environment variables list and example `.env.example`.
+  - Step-by-step run instructions:
+    1. `npm install` in /client and /server
+    2. Start dev: `npm run dev` (or `concurrently` script)
+    3. Build & serve steps
+  - Admin credentials reminder.
+- All pages & features working; no console errors.
+- Sample screenshots of Desktop & Mobile (optional).
+
+EXACT COPY-PASTE PROMPT FOR DEVELOPERS / AI:
+"Build 'HR Growth' — a fullstack React + Tailwind frontend and Node/Express + MongoDB backend using the exact specifications in this message. Use the black theme with green and white accents. Use the uploaded logo only. Ensure header/footer sizes are normal (header 72px desktop), hero text sizes are balanced (desktop title 48–56px), hamburger drawer works with accessible button and focus trap, counters animate, registration saves to MongoDB, admin login uses credentials TRADINGDESK / TRADINGDESK0099 and returns a JWT, visitor tracking increments once per session via cookie, and admin panel supports viewing, search, CSV export and 7-day chart. Provide README and ensure production build is minified and accessible."
+
+NOTES / ASSUMPTIONS I MADE
+- Candlestick chart background will be a royalty-free image or light motion video (developer to include sample).
+- Country dropdown restricted to "Pakistan" as requested.
+- JWT expiry set to 8 hours (developer can change via env).
