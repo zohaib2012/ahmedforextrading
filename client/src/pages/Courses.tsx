@@ -109,11 +109,13 @@ export default function Courses() {
               <h4 className="text-white font-semibold mb-4">What you'll learn:</h4>
               <ul className="space-y-3">
                 {[
-                  "Market Structure & Trends",
-                  "Supply & Demand Zones",
-                  "Risk Management (Critical)",
-                  "Trading Psychology",
-                  "Live Analysis Sessions"
+                  "Basic Market Information",
+                  "Platforms Navigations",
+                  "Market Structure",
+                  "Price Action",
+                  "Advance SMC",
+                  "Volume Confirmations",
+                  "Daily live trades"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
