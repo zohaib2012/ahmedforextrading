@@ -20,7 +20,7 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="hover:text-white transition-colors">
-                <a href="tel:03705102268">0370-5102268</a>
+                <a href="tel:+923019605612">+923019605612</a>
               </li>
               <li className="hover:text-white transition-colors">
                 <a href="mailto:HRgrowths@gmail.com">HRgrowths@gmail.com</a>
