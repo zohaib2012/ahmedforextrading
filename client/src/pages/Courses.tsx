@@ -32,7 +32,7 @@ export default function Courses() {
               
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 text-primary" /> 8 Weeks Duration
+                  <Clock className="w-4 h-4 text-primary" /> 6 Weeks Duration
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4 text-primary" /> Weekend Classes
@@ -85,7 +85,7 @@ export default function Courses() {
               
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="w-4 h-4 text-primary" /> 12 Weeks Duration
+                  <Clock className="w-4 h-4 text-primary" /> 6 Weeks Duration
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="w-4 h-4 text-primary" /> Live Sessions
