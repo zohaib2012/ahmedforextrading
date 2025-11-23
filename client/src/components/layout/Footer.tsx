@@ -25,7 +25,7 @@ export function Footer() {
               <li className="hover:text-white transition-colors">
                 <a href="mailto:HRgrowths@gmail.com">HRgrowths@gmail.com</a>
               </li>
-              <li>Commercial Area, Bahawalpur</li>
+              <li>Satellite Town Bahawalpur</li>
             </ul>
           </div>
 
